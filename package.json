@@ -6,6 +6,9 @@
     "start": "ng serve",
     "build": "ng build ngx-right-click-menu",
     "build:lib": "ng build ngx-right-click-menu --watch",
+    "pack:lib": "cd ./dist/ngx-right-click-menu && npm pack",
+    "copy-readme": "cp README.md ./dist/ngx-right-click-menu",
+    "package": "npm run build && npm run copy-readme && npm run pack:lib",
     "test": "ng test ngx-right-click-menu",
     "lint": "ng lint ngx-right-click-menu",
     "e2e": "ng e2e ngx-right-click-menu"
