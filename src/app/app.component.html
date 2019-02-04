@@ -1,4 +1,7 @@
-<div>
+<p>
+  this is an example for testing context menu
+</p>
+<button (click)="test('test')">test button</button>
+<div [ngxContextMenu]="{ processorName: 'disCol', servers: ['servers'] }">
   Right click here!
 </div>
-<ngx-right-click-menu></ngx-right-click-menu>

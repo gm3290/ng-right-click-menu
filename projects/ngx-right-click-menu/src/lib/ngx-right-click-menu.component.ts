@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'ngx-right-click-menu',
   template: `
     <p>
-      ngx-right-click-menu works!
+      right click working now!
     </p>
   `,
   styles: []
