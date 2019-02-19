@@ -1,0 +1,13 @@
+.test-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 30px;
+  border: 1px #e5e5e5 solid;
+}
+.test-items .item {
+  border: 1px #e5e5e5 solid;
+  padding: 8px 15px;
+  cursor: pointer;
+  user-select: none;
+}

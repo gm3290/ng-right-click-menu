@@ -1,49 +1,47 @@
 /* tslint:disable:member-ordering */
 import {
-  Directive, HostListener, Input,
+  Directive, HostListener, Input, ComponentFactoryResolver, ViewContainerRef
 } from '@angular/core';
-import { MatDialog } from '@angular/material';
 import { NgxRightClickMenuComponent } from './ngx-right-click-menu.component';
+import { Menu, MenuItem } from './ngx-right-click-menu.model';
 
 @Directive({
   selector: '[ngxContextMenu]'
 })
 
 export class NgxRightClickMenuDirective {
-  @Input() set ngxContextMenu(data: any) {
-    this.processorName = data.processorName;
-    this.servers = data.servers;
+  @Input() set ngxContextMenu(data: Menu) {
+    this.title = data.title;
+    this.items = data.items;
   }
 
   @HostListener('contextmenu', ['$event'])
   public menuContext = (event: MouseEvent) => this.openMenu(event);
 
-  @HostListener('document:click', ['$event'])
-  public onClick = () => this.dialog.closeAll();;
-
-  private processorName: string;
-  private servers: any[];
+  private title: string;
+  private items: MenuItem[] = [];
+  public _contextMenu: NgxRightClickMenuComponent;
 
   constructor(
-    public dialog: MatDialog,
+    private _componentResolver: ComponentFactoryResolver,
+    private _viewContainerRef: ViewContainerRef
   ) { }
 
   private openMenu(event: MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
-    this.dialog.closeAll();
-    this.dialog.open(NgxRightClickMenuComponent, {
-      width: '200px',
-      // hasBackdrop: false,
-      data: {
-        processorName: this.processorName,
-        servers: this.servers
-      },
-      // position: {
-      //   top: `${event.clientY}px`,
-      //   left: `${this.getPosition(event.clientX)}px`,
-      // },
-      panelClass: 'ngContextMenu-container',
+    this._viewContainerRef.clear();
+    const componentFactory = this._componentResolver.resolveComponentFactory(NgxRightClickMenuComponent);
+    const componentRef = this._viewContainerRef.createComponent(componentFactory);
+
+    this._contextMenu = componentRef.instance;
+    this._contextMenu.position(event.clientX, event.clientY);
+
+    this._contextMenu.title = this.title;
+    this._contextMenu.items = this.items;
+
+    componentRef.instance['backDropClick'].subscribe(() => {
+      this._viewContainerRef.clear();
     });
   }
 

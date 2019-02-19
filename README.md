@@ -16,13 +16,13 @@ __DEMO__ https://example.com/
 import `NgxRightClickMenuModule`
 
 ````typescript
-import {NgxRightClickMenuModule} from 'ngx-right-click-menu'
+import { NgxRightClickMenuModule } from 'ngx-right-click-menu'
 
 @NgModule({
   //...
   imports: [
   ...
-  NgxRightClickMenuModule,
+    NgxRightClickMenuModule,
   ...
   ]
   //...
@@ -31,4 +31,29 @@ import {NgxRightClickMenuModule} from 'ngx-right-click-menu'
 
 ## Usage
 
-WIP
+````html
+  <div [ngxContextMenu]="menu" class="item">
+    Right click here!
+  </div>
+````
+
+````typescript
+export class AppComponent {
+  public menu = {
+    title: 'Simple Menu',
+    items: [
+      {
+        label: 'Menu 1',
+        action: this.menuAction,
+      },
+      {
+        label: 'Menu 2',
+        action: this.menuAction,
+      },
+    ],
+  }
+  public menuAction() {
+    console.log('menu clicked!');
+  }
+}
+````
