@@ -10,6 +10,8 @@ __DEMO__ https://example.com/
 
 `@angular/core": "^7.0.0`
 
+`"@angular/material": "^7.3.0"`
+
 ### Setup
   `npm i -s ngx-right-click-menu`
   
@@ -48,6 +50,8 @@ export class AppComponent {
       },
       {
         label: 'Menu 2',
+        disable: true,
+        icon: 'home',
         action: this.menuAction,
       },
     ],
@@ -57,3 +61,15 @@ export class AppComponent {
   }
 }
 ````
+
+### To use Ripple effect, add below line to style.css.
+
+``` css
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+```
+
+### In order to use materail icons, add below line to index.html
+
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```

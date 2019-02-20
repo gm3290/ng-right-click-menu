@@ -1,9 +1,10 @@
 {
   "name": "ngx-right-click-menu",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0"
+    "@angular/core": "^7.0.0",
+    "@angular/material": "^7.3.0"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,8 @@
     "right",
     "click",
     "menu",
-    "contextmenu"
+    "contextmenu",
+    "material"
   ],
   "author": "fairy329 <clearg1929@gmail.com>",
   "license": "ISC",

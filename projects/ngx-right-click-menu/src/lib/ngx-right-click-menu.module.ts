@@ -1,26 +1,33 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  MatListModule,
+  MatIconModule,
+  MatCardModule,
+} from '@angular/material';
 import { NgxRightClickMenuComponent } from './ngx-right-click-menu.component';
 import { NgxRightClickMenuDirective } from './ngx-right-click-menu.directive';
-import { MatDialogModule } from '@angular/material';
-import {CommonModule} from '@angular/common';
-import { CdkTableModule } from '@angular/cdk/table';
+import { NgxRightClickMenuBackDropComponent } from './ngx-right-click-menu-backdrop.component';
 
 @NgModule({
   declarations: [
     NgxRightClickMenuComponent,
     NgxRightClickMenuDirective,
+    NgxRightClickMenuBackDropComponent,
   ],
   imports: [
-    CdkTableModule,
-    MatDialogModule,
-    CommonModule
+    CommonModule,
+    MatListModule,
+    MatIconModule,
+    MatCardModule,
   ],
   exports: [
     NgxRightClickMenuComponent,
-    NgxRightClickMenuDirective
+    NgxRightClickMenuDirective,
   ],
   entryComponents: [
-    NgxRightClickMenuComponent
+    NgxRightClickMenuComponent,
+    NgxRightClickMenuBackDropComponent
   ]
 })
 export class NgxRightClickMenuModule { }

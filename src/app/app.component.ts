@@ -11,6 +11,8 @@ export class AppComponent {
     items: [
       {
         label: 'Menu 1',
+        disable: true,
+        icon: 'home',
         action: this.menuAction,
       },
       {
