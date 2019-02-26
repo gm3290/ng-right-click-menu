@@ -68,8 +68,13 @@ export class AppComponent {
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 ```
 
-### In order to use materail icons, add below line to index.html
+### In order to use material icons, add below line to index.html
 
 ```html
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
+
+*Note*
+If you have good suggetions or issues, please leave a comments here:
+
+__ISSUES__  https://github.com/chpinan1128/ng-right-click-menu/issues
